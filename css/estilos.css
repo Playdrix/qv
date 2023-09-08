@@ -1,0 +1,74 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background-color: rgb(24, 24, 24);
+}
+
+.pagina {
+    width: calc(100% - 12px);
+    height: 110vh;
+    margin: 10px auto;
+    padding: 0px 5px;
+    display: grid;
+    grid-gap: 4px;
+
+    grid-template-columns: 260px auto;
+    grid-template-rows: 70px 400px 1fr 1fr;
+}
+
+
+.pagina .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 5px;
+}
+.pagina .contenido1 {
+    background-color: rgb(14, 14, 14);
+    padding: 8px;
+    border-radius: 5px;
+}
+.pagina .lateral {
+    background-color: rgb(14, 14, 14);
+    padding: 8px;
+    border-radius: 5px;
+}
+.pagina .contenido2 {
+    background-color: rgb(14, 14, 14);
+    padding: 8px;
+    border-radius: 5px;
+
+    grid-row: span 3;
+}
+
+
+
+.pagina .contenido3 {
+    height: 100px;
+}
+
+.pagina .contenido4 {
+    height: 100px;
+}
+
+.lateral a, ul{
+    list-style: none;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+.pagina .inferior {
+    background-color: rgb(14, 14, 14);
+    padding: 8px;
+    border-radius: 5px;
+    grid-column: span 2;
+}
