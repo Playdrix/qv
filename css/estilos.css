@@ -18,14 +18,14 @@ body {
 }
 
 .pagina {
-    width: calc(100% - 12px);
-    padding: 10px 7px;
+    width: 100vw;
+    padding: 6px 10px 10px 10px;
     display: grid;
     grid-gap: 8px;
     height: 100vh;
 
-    grid-template-columns: 220px 1fr 1fr;
-    grid-template-rows: 60px 1fr 1fr 1fr;
+    grid-template-columns: 205px 1fr 1fr;
+    grid-template-rows: 55px 5fr 2fr 1fr;
 
     grid-template-areas: "lateral contenido1 contenido1"
                          "lateral contenido2 contenido2"
@@ -37,7 +37,7 @@ body {
 
 .contenido1 {
     background-color: var(--fondocontenedor);
-    padding: 8px 13px;
+    padding: 10px 13px;
     border-radius: 5px;
     grid-area: contenido1;
 }
@@ -49,8 +49,8 @@ body {
 
     display: grid;
     grid-gap: 8px;
-    grid-template-columns: 220px;
-    grid-template-rows: 60px 1fr;
+    grid-template-columns: 205px;
+    grid-template-rows: 55px 1fr;
 
     grid-template-areas: "logo"
                          "nav-menu";
@@ -66,36 +66,35 @@ body {
 
 .logo {
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 12px 2px 2px 14px;
+    padding: 10px 5px 5px 0px;
     border-radius: 5px;
     height: 60px;
     grid-area: logo;
 }
 
 #imagen-logo {
-    padding: 0px 4px;
-    width: 47px;
+    width: 36px;
 }
 
 .nombre-logo {
+    padding: 0px 0px 0px 5px;
     font-size: 19px;
-    padding: 0px 4px;
     font-weight: 700;
 }
 
 /* NAV-MENU*/
 
-.pagina .nav-menu {
+.nav-menu {
     background-color: var(--fondocontenedor);
-    padding: 14px 2px 2px 18px;
-    margin: 0px 0px 0px 10px;
+    padding: 10px 14px;
     border-radius: 5px;
     grid-area: nav-menu;
 }
 
-.lateral li {
-    margin: 0px 0px 10px 0px;
+li {
+    margin-bottom: 7px;
 }
 
 .lateral a:hover {
@@ -104,9 +103,9 @@ body {
 
 /*CONTENIDO PRINCIPAL*/
 
-.pagina .contenido2 {
+.contenido2 {
     background-color: var(--fondocontenedor);
-    padding: 8px 13px;
+    padding: 10px 13px;
     border-radius: 5px;
     grid-area: contenido2;
 }
@@ -115,7 +114,7 @@ body {
 
 .contenido3 {
     background-color: var(--fondocontenedor);
-    padding: 8px 13px;
+    padding: 10px 13px;
     border-radius: 5px;
     grid-area: contenido3;
 }
@@ -131,7 +130,10 @@ body {
 
 .inferior {
     background-color: var(--fondocontenedor);
-    padding: 8px;
+    padding: 10px 13px;
     border-radius: 5px;
     grid-area: inferior;
 }
+
+
+
