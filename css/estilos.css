@@ -2,173 +2,146 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
+    color: white;
 }
 
 :root {
-    --fondopagina: rgb(42, 43, 42);
-    --fondocontenedor: rgb(13, 19, 19);
-    --colorlinkmouse: rgb(26, 219, 219);
-    --bordesradio: 5px;
+    --colorfondopagina: rgb(160, 160, 160);
+    --colorcontenedor: rgb(20, 20, 20);
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    background-color: var(--fondopagina);
+    background-color: var(--colorfondopagina);
 }
+
+/* CONFIGURACIÓN PANTALLA*/
 
 .pagina {
     width: 100vw;
-    padding: 6px 10px 10px 10px;
-    display: grid;
-    grid-gap: 8px;
     height: 100vh;
 
-    grid-template-columns: 205px 1fr 1fr;
-    grid-template-rows: 50px 5fr 2fr 1fr;
-
-    grid-template-areas: "lateral header header"
-                         "lateral contenido2 contenido2"
-                         "lateral contenido3 contenido4"
-                         "lateral inferior inferior";
-}
-
-/*CONTENIDO HEADER*/
-
-.header {
-    background-color: var(--fondocontenedor);
-    border-radius: 5px;
-    grid-area: header;
+    padding: 7px;
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 50px;
+    grid-template-columns: 240px auto;
+    grid-template-rows: 1fr;
+    gap: 5px;
 
-    grid-template-areas: "vacio vacio1 header3";
-
+    grid-template-areas: "barra main";
 }
 
-.header3 {
-    grid-area: header3;
+/* BARRA LATERAL*/
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.header3 a {
-    color: white;
-    padding: 0px 22px;
-    transition: all 0.4s ease;
-}
-
-.header3 a:hover {
-    color: var(--colorlinkmouse);
-}
-
-
-
-/* CONTENIDO LATERAL */
-
-.lateral {
-    grid-area: lateral;
+.barra {
+    background-color: rgb(228, 228, 228);
 
     display: grid;
-    grid-gap: 8px;
-    grid-template-columns: 205px;
-    grid-template-rows: 50px 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 55px 1fr;
+    gap: 6px;
 
     grid-template-areas: "logo"
-                         "nav-menu";
+                         "menus";
 }
 
 /* LOGO */
 
 .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px 5px 5px 0px;
-    border-radius: 5px;
-    height: 60px;
     grid-area: logo;
+
+    background-color: var(--colorcontenedor);
+    border-radius: 8px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 55px;
+
+    grid-template-areas: "logo-img nombre";
 }
 
-#imagen-logo {
-    width: 36px;
+.logo-img {
+    grid-area: logo-img;
 }
 
-.nombre-logo {
-    padding: 0px 0px 0px 5px;
-    font-size: 19px;
-
-
-    font-weight: 700;
+.nombre {
+    grid-area: nombre;
 }
 
-/* NAV-MENU*/
+/* MENU */
 
-.nav-menu {
-    background-color: var(--fondocontenedor);
-    padding: 10px 14px;
-    border-radius: 5px;
-    grid-area: nav-menu;
+.menus {
+    grid-area: menus;
+
+    background-color: var(--colorcontenedor);
+    border-radius: 8px;
 }
 
-.nav-menu li {
-    padding: 0px 0px 8px 0px;
+/*----------------------------------------------------------------------*/
+
+/* MAIN */
+
+.main {
+    background-color: rgb(189, 189, 189);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 55px 1fr 85px;
+    gap: 6px;
+
+    overflow: auto;
+
+    grid-template-areas: "header"
+                         "contenido"
+                         "footer";
+
+                         
 }
 
-.nav-menu a {
-    color: white;
+/* HEADER */
 
-    transition: all 0.4s ease;
+.header {
+    grid-area: header;
+
+    background-color: var(--colorcontenedor);
+    border-radius: 8px;
+
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr;
+
+    grid-template-areas: "buscador botones";
 }
 
-.nav-menu a:hover {
-    color: var(--colorlinkmouse);
+.buscador {
+    grid-area: buscador;
 }
 
-
-
-
-
-
-
-
-
-/*CONTENIDO PRINCIPAL*/
-
-.contenido2 {
-    background-color: var(--fondocontenedor);
-    padding: 10px 13px;
-    border-radius: 5px;
-    grid-area: contenido2;
+.botones {
+    grid-area: botones;
 }
 
-/* CONTENIDO ADICIONAL 3 y 4 */
+/* CONTENIDO */
 
-.contenido3 {
-    background-color: var(--fondocontenedor);
-    padding: 10px 13px;
-    border-radius: 5px;
-    grid-area: contenido3;
-}
+.contenido {
+    grid-area: contenido;
 
-.contenido4 {
-    background-color: var(--fondocontenedor);
-    padding: 8px 13px;
-    border-radius: 5px;
-    grid-area: contenido4;
+    width: 100%;
+    height: 100%;
+
+    padding: 10px;
+
+    overflow: auto;
+
+    background-color: var(--colorcontenedor);
+    border-radius: 8px;
 }
 
 /* FOOTER */
 
-.inferior {
-    background-color: var(--fondocontenedor);
-    padding: 10px 13px;
-    border-radius: 5px;
-    grid-area: inferior;
+.footer {
+    grid-area: footer;
+
+    background-color: var(--colorcontenedor);
+    border-radius: 8px;
 }
+
