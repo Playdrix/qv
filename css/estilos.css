@@ -2,146 +2,113 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    color: white;
 }
 
 :root {
-    --colorfondopagina: rgb(160, 160, 160);
-    --colorcontenedor: rgb(20, 20, 20);
+    --fondopagina: rgb(109, 109, 109);
+    --fondocontenedor: rgb(22, 22, 22);
+    --radiocontenedor: 7px
 }
 
 body {
-    background-color: var(--colorfondopagina);
+    color: white;
+    background-color: var(--fondopagina);
 }
-
-/* CONFIGURACIÓN PANTALLA*/
 
 .pagina {
     width: 100vw;
     height: 100vh;
 
-    padding: 7px;
+    padding: 5px;
 
     display: grid;
-    grid-template-columns: 240px auto;
+
+    overflow: auto;
+
+    grid-template-columns: 200px auto;
     grid-template-rows: 1fr;
     gap: 5px;
 
     grid-template-areas: "barra main";
 }
 
-/* BARRA LATERAL*/
+
+/* BARRA */
 
 .barra {
-    background-color: rgb(228, 228, 228);
+    grid-area: barra;
 
     display: grid;
+
     grid-template-columns: 1fr;
-    grid-template-rows: 55px 1fr;
-    gap: 6px;
+    grid-template-rows: 55px auto;
+    gap: 5px;
 
     grid-template-areas: "logo"
                          "menus";
 }
 
-/* LOGO */
+/* Logo */
 
 .logo {
     grid-area: logo;
-
-    background-color: var(--colorcontenedor);
-    border-radius: 8px;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 55px;
-
-    grid-template-areas: "logo-img nombre";
+    background-color: var(--fondocontenedor);
+    border-radius: var(--radiocontenedor);
 }
 
-.logo-img {
-    grid-area: logo-img;
-}
-
-.nombre {
-    grid-area: nombre;
-}
-
-/* MENU */
+/* Menu */
 
 .menus {
     grid-area: menus;
-
-    background-color: var(--colorcontenedor);
-    border-radius: 8px;
+    background-color: var(--fondocontenedor);
+    border-radius: var(--radiocontenedor);
 }
 
-/*----------------------------------------------------------------------*/
 
 /* MAIN */
 
 .main {
-    background-color: rgb(189, 189, 189);
+    grid-area: main;
 
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 55px 1fr 85px;
-    gap: 6px;
-
-    overflow: auto;
-
-    grid-template-areas: "header"
-                         "contenido"
-                         "footer";
-
-                         
-}
-
-/* HEADER */
-
-.header {
-    grid-area: header;
-
-    background-color: var(--colorcontenedor);
-    border-radius: 8px;
-
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr;
-
-    grid-template-areas: "buscador botones";
-}
-
-.buscador {
-    grid-area: buscador;
-}
-
-.botones {
-    grid-area: botones;
-}
-
-/* CONTENIDO */
-
-.contenido {
-    grid-area: contenido;
+    border-radius: var(--radiocontenedor);
 
     width: 100%;
     height: 100%;
-
-    padding: 10px;
-
     overflow: auto;
 
-    background-color: var(--colorcontenedor);
-    border-radius: 8px;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 55px auto 40px;
+    gap: 5px;
+
+    grid-template-areas: "header"
+                         "contenido"
+                         "inferior";
+
 }
 
-/* FOOTER */
+/* Header */
 
-.footer {
-    grid-area: footer;
+.header {
+    grid-area: header;
+    background-color: var(--fondocontenedor);
+    border-radius: var(--radiocontenedor);
+}
 
-    background-color: var(--colorcontenedor);
-    border-radius: 8px;
+/* Contenido */
+
+.contenido {
+    grid-area: contenido;
+    background-color: var(--fondocontenedor);
+    border-radius: var(--radiocontenedor);
+}
+
+/* Footer */
+
+.inferior {
+    grid-area: inferior;
+    background-color: var(--fondocontenedor);
+    border-radius: var(--radiocontenedor);
 }
 
