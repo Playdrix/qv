@@ -279,7 +279,6 @@ body {
 
 .calculadora-calorias {
     grid-area: aplicacion1;
-    background-color: rgb(225, 226, 135);
     border-radius: var(--radiocontenedor);
 
     display: grid;
@@ -292,7 +291,6 @@ body {
 
 .libre {
     grid-area: aplicacion2;
-    background-color: rgb(206, 206, 206);
     border-radius: var(--radiocontenedor);
 
 }
