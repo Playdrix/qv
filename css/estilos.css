@@ -5,27 +5,38 @@
 }
 
 :root {
-    --fondopagina: rgb(109, 109, 109);
-    --fondocontenedor: rgb(22, 22, 22);
-    --radiocontenedor: 7px
+    --fondopagina: #293038;  /* Color: 373f4b Used color: 293038*/
+    --fondocontenedoroscuro: #14171d; /* Color: 222831 Used color: 14171d*/
+    --fondocontenedorclaro: #1d232b; /* Color: 2d3541 Used color: 1d232b*/
+    --radiocontenedor: 10px;
+    --paddingcontenedor: 8px 12px;
 }
 
 body {
-    color: white;
+    color: rgb(255, 255, 255);
     background-color: var(--fondopagina);
+
+    /*font-family: 'Montserrat', sans-serif;*/
+    /* font-family: 'Roboto', sans-serif;*/
+    /*font-family: 'Kanit', sans-serif;*/
+    font-family: 'Poppins', sans-serif;
+    /*font-family: 'Oswald', sans-serif;*/
+    /*font-family: 'ADLaM Display', cursive;*/
+
+    font-weight: 400;
+    
+
 }
 
 .pagina {
     width: 100vw;
     height: 100vh;
-
     padding: 5px;
-
-    display: grid;
 
     overflow: auto;
 
-    grid-template-columns: 200px auto;
+    display: grid;
+    grid-template-columns: 220px auto;  
     grid-template-rows: 1fr;
     gap: 5px;
 
@@ -39,10 +50,11 @@ body {
     grid-area: barra;
 
     display: grid;
-
     grid-template-columns: 1fr;
-    grid-template-rows: 55px auto;
+    grid-template-rows: 50px auto;
     gap: 5px;
+
+    overflow: auto;
 
     grid-template-areas: "logo"
                          "menus";
@@ -52,17 +64,129 @@ body {
 
 .logo {
     grid-area: logo;
-    background-color: var(--fondocontenedor);
     border-radius: var(--radiocontenedor);
+
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 4fr 0.5fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+
+    grid-template-areas: "vacio1 logo-icono logo-nombre vacio2";
 }
+
+.logo-icono {
+    grid-area: logo-icono;
+    padding-top: 4px;
+    width: 39px;
+}
+
+.logo-nombre {
+    grid-area: logo-nombre;
+
+    font-family: 'ADLaM Display', cursive;
+    padding-top: 3px;
+    font-size: 17px;
+}
+
 
 /* Menu */
 
 .menus {
     grid-area: menus;
-    background-color: var(--fondocontenedor);
+
+    background-color: var(--fondocontenedoroscuro);
     border-radius: var(--radiocontenedor);
+
+    overflow: auto;
+
+    padding: var(--paddingcontenedor);
 }
+
+.menus li {
+    list-style: none;
+}
+
+.menus a {
+    text-decoration: none;
+    color: white;
+}
+
+.menus-opciones:has( :checked) {
+    --rows: 1fr;
+    --rotate: rotate(180deg);
+}
+
+/* Menu - Opciones */
+
+.opcion {
+    display: grid;
+
+    grid-template-columns: 1fr 6.5fr 0.5fr 0.4fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    padding: 8px 5px;
+    
+    grid-template-areas: "simbolo titulo flecha vacio1";
+
+    position: relative;
+}
+
+.casilla {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
+    width: 100%;
+    height: 100%;
+}
+
+/* Menu - Opciones- Opcion */
+
+.simbolo {
+    grid-area: simbolo;
+
+    width: 13px;
+}
+
+.titulo {
+    grid-area: titulo;
+
+    font-size: 15px;
+}
+
+.flecha {
+    grid-area: flecha;
+
+    transform: var(--rotate, 0);
+
+    transition: 0.2s transform;
+}
+
+
+/* Menu - Opciones - Opcion - Sub opcion */
+
+.sub-opcion-contenedor {
+    display: grid;
+
+    margin: 5px 0px 7px 29px;
+
+    grid-template-rows: var(--rows, 0fr);
+    transition: .15s grid-template-rows;
+}
+
+.sub-opcion-menus {
+    overflow: hidden;
+
+    font-size: 13px;
+}
+
+.sub-opcion {
+    padding: 7px 0px;
+}
+
+
+
 
 
 /* MAIN */
@@ -79,7 +203,7 @@ body {
 
 
     grid-template-columns: 1fr;
-    grid-template-rows: 55px auto 40px;
+    grid-template-rows: 50px auto 40px;
     gap: 5px;
 
     grid-template-areas: "header"
@@ -92,23 +216,93 @@ body {
 
 .header {
     grid-area: header;
-    background-color: var(--fondocontenedor);
+    background-color: var(--fondocontenedorclaro);
     border-radius: var(--radiocontenedor);
+    padding: var(--paddingcontenedor);
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 0.2fr;
+    grid-template-rows: 1fr;
+
+    grid-template-areas: "vacio1 vacio2 opciones-header vacio3";
 }
 
-/* Contenido */
+.opciones-header {
+    grid-area: opciones-header;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.opciones-header li {
+    list-style: none;
+    padding: 0 18px;
+    font-size: 15px;
+}
+
+.opciones-header a {
+    text-decoration: none;
+    color: white;
+}
+
+
+
+/* CONTENIDO */
 
 .contenido {
     grid-area: contenido;
-    background-color: var(--fondocontenedor);
+    background-color: var(--fondocontenedorclaro);
     border-radius: var(--radiocontenedor);
+    padding: 12px 12px;
+
+    overflow: auto;
+}
+
+.aplicaciones {
+
+    display: grid;
+
+    width: 100%;
+    height: 100%;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 12px;
+
+    grid-template-areas: "aplicacion1"
+                         "aplicacion2";
+}
+
+/* Aplicacion 1 - calculadora de calorias*/
+
+.calculadora-calorias {
+    grid-area: aplicacion1;
+    background-color: rgb(225, 226, 135);
+    border-radius: var(--radiocontenedor);
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    grid-template-areas: "datos resultado";
+}
+
+.libre {
+    grid-area: aplicacion2;
+    background-color: rgb(206, 206, 206);
+    border-radius: var(--radiocontenedor);
+
 }
 
 /* Footer */
 
 .inferior {
     grid-area: inferior;
-    background-color: var(--fondocontenedor);
+    background-color: var(--fondocontenedorclaro);
     border-radius: var(--radiocontenedor);
+    padding: var(--paddingcontenedor);
 }
 
