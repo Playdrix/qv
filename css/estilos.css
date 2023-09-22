@@ -78,14 +78,14 @@ body {
 .logo-icono {
     grid-area: logo-icono;
     padding-top: 4px;
-    width: 39px;
+    width: 30px;
 }
 
 .logo-nombre {
     grid-area: logo-nombre;
 
     font-family: 'ADLaM Display', cursive;
-    padding-top: 3px;
+    padding-top: 2px;
     font-size: 17px;
 }
 
@@ -112,7 +112,11 @@ body {
     color: white;
 }
 
-.menus-opciones:has( :checked) {
+.menus a:hover {
+    color: rgb(77, 153, 252);
+}
+
+.menus-opciones:has( :checked) {    
     --rows: 1fr;
     --rotate: rotate(180deg);
 }
@@ -161,6 +165,10 @@ body {
     transform: var(--rotate, 0);
 
     transition: 0.2s transform;
+}
+
+.flecha:hover {
+        color: rgb(77, 153, 252);
 }
 
 
@@ -247,6 +255,10 @@ body {
     color: white;
 }
 
+.opciones-header a:hover {
+    color: rgb(77, 153, 252);
+}
+
 
 
 /* CONTENIDO */
@@ -283,10 +295,30 @@ body {
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 3fr;
     grid-template-rows: 1fr;
 
     grid-template-areas: "datos resultado";
+}
+
+.calcular {
+    margin: 0px 210px;
+}
+
+.calorias {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    font-size: 40px;
+}
+
+.datos {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0px;
+    padding: 80px 80px;
 }
 
 .libre {
@@ -304,3 +336,12 @@ body {
     padding: var(--paddingcontenedor);
 }
 
+@media (max-width: 900px) {
+    .header {
+        background-color: red;
+    }
+    
+    .barra {
+        display: none;
+    }
+}
