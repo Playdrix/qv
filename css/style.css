@@ -26,6 +26,15 @@ body {
                          "menu contenido";
 }
 
+.pagina.active {
+    grid-template-columns: 250px auto;
+    grid-template-rows: 55px auto;
+    grid-template-areas: "header header"
+                         "contenido contenido";
+
+    transition: .5s grid-template-areas;
+}
+
 /* LOGO */
 
 .pagina .logo {
@@ -34,6 +43,10 @@ body {
 
     display: flex;
     align-items: center;
+}
+
+.pagina .logo.active {
+    display: none;
 }
 
 .pagina .logo a {
@@ -63,7 +76,7 @@ body {
 
 /* HEADER */
 
-.pagina .header {
+.header {
     grid-area: header;
     background: var(--colorFondoHeader);
 
@@ -78,22 +91,22 @@ body {
 
 /* BAR */
 
-.pagina .header .bar {
+.header .bar {
     grid-area: bar;
 
 }
 
-.pagina .header .bar button {
+.header .bar button {
     width: 40px;
     height: 40px;
     border-radius: 100px;
 }
 
-.pagina .header .bar button:hover {
+.header .bar button:hover {
     background: rgb(57, 57, 63);
 }
 
-.pagina .header .bar .boton-bar {
+.header .bar .boton-bar {
     background: none;
     border: none;
     cursor: pointer;
@@ -101,13 +114,13 @@ body {
     font-size: 20px;
 }
 
-.pagina .header .bar i {
+.header .bar i {
     padding: 3px;
 }
 
 /* BUSCADOR */
 
-.pagina .header .buscador {
+.header .buscador {
     grid-area: buscador;
 
     display: flex;
@@ -115,8 +128,8 @@ body {
     justify-content: center;
 }
 
-.pagina .header .buscador input {
-    width: 60%;
+.header .buscador input {
+    width: 70%;
     background-color: rgb(236, 236, 236);
     padding: 7px 14px;
     border-radius: 15px;
@@ -125,7 +138,7 @@ body {
     font-size: 16px;
 }
 
-.pagina .header .buscador .lupa {
+.header .buscador .lupa {
     color: white;
 
     margin-left: 4px;
@@ -141,17 +154,17 @@ body {
     border: none;
 }
 
-.pagina .header .buscador i {
+.header .buscador i {
     padding: 3px;
 }
 
-.pagina .header .buscador .lupa:hover {
+.header .buscador .lupa:hover {
     background: rgb(57, 57, 63);
 }
 
 /* ICONOS */
 
-.pagina .header .iconos {
+.header .iconos {
     grid-area: iconos;
 
     display: flex;
@@ -159,7 +172,7 @@ body {
     justify-content: center;
 }
 
-.pagina .header .iconos button {
+.header .iconos button {
     background: none;
     border: none;
     color: white;
@@ -173,17 +186,17 @@ body {
     border-radius: 100px;
 }
 
-.pagina .header .iconos i {
+.header .iconos i {
     padding: 3px;
 }
 
-.pagina .header .iconos button:hover {
+.header .iconos button:hover {
     background: rgb(57, 57, 63);
 }
 
 /* AVATAR */
 
-.pagina .header .avatar {
+.header .avatar {
     grid-area: avatar;
     
     display: flex;
@@ -191,7 +204,7 @@ body {
     justify-content: center;
 }
 
-.pagina .header .avatar button{
+.header .avatar button{
     margin-right: 20px;
     font-size: 22px;
 
@@ -207,64 +220,68 @@ body {
     border: none;
 }
 
-.pagina .header .avatar i {
+.header .avatar i {
     padding: 3px;
 }
 
-.pagina .header .avatar button:hover {
+.header .avatar button:hover {
     background: rgb(57, 57, 63);
 }
 
 
 /* MENU */
 
-.pagina .menu-lateral {
+.menu-lateral {
     grid-area: menu;
     background: var(--colorFondoMenu);
 }
 
-.pagina .menu-lateral a {
+.menu-lateral.active {
+    display: none;
+}
+
+.menu-lateral a {
     display: block;
     color: rgba(255, 255, 255, 0.85);
     padding: 15px 35px;
     text-decoration: none;
 }
 
-.pagina .menu-lateral a:hover {
+.menu-lateral a:hover {
     background: rgb(57, 57, 63);
     color: rgb(255, 255, 255);
     font-weight: 500;
 }
 
-.pagina .menu-lateral .opcion {
+.menu-lateral .opcion {
     font-size: 17px;
 }
 
-.pagina .menu-lateral .fa-solid {
+.menu-lateral .fa-solid {
     margin-right: 28px;
     font-size: 14x;
 }
 
-.pagina .menu-lateral a.active {
+.menu-lateral a.active {
     background: rgb(57, 57, 63);
     font-weight: 500;
 }
 
-.pagina .menu-lateral a.active .fa-solid {
+.menu-lateral a.active .fa-solid {
     background: rgb(57, 57, 63);
     color: hsl(202, 77%, 57%);
 }
 
 /* CONTENIDO */
 
-.pagina .contenido {
+.contenido {
     grid-area: contenido;
     background: var(--colorFondoContenido);
 
     padding: 25px 30px;
 }
 
-.pagina .contenido .titulo {
+.contenido .titulo {
     font-size: 19px;
     font-family: 'Open Sans', sans-serif;
     color: white;

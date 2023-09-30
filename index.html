@@ -14,9 +14,9 @@
 
 </head>
 <body>
-    <div class="pagina">
+    <div class="pagina" id="pagina">
 
-        <div class="logo">
+        <div class="logo" id="logo">
             <a href="#">
                 <img src="./img/icono-cuadrados.png" alt=""><span class="nombre-logo">APLICACIÓN QV</span>
             </a>
@@ -25,7 +25,7 @@
         <header class="header">
 
             <div class="bar">
-                <button id="boton-bar" class="boton-bar"><i class="fa-solid fa-bars"></i></button>
+                <button id="boton-bar" class="boton-bar" onclick="botonMenu()"><i class="fa-solid fa-bars"></i></button>
             </div>
 
             <div class="buscador">
@@ -42,7 +42,7 @@
             </div>
         </header>
 
-        <nav class="menu-lateral">
+        <nav class="menu-lateral" id="menu-lateral">
             <a href="#" class="active"><i class="fa-solid fa-cube"></i><span class="opcion">Aplicaciones</span></a>
             <a href="#"><i class="fa-solid fa-globe"></i><span class="opcion">Web</span></a>
             <a href="#"><i class="fa-solid fa-comment-dots"></i><span class="opcion">Comentarios</span></a>
@@ -54,5 +54,6 @@
 
     </div>
     
+    <script src="./js/menu.js"></script>
 </body>
 </html>

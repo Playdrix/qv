@@ -1,0 +1,60 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.contenedor-general {
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+
+    display: grid;
+    
+    grid-template-columns: 250px auto;
+    grid-template-rows: 60px auto;
+
+    grid-template-areas: "uno dos"
+                         "tres cuatro";
+}
+
+.contenedor-general:has( :checked) {
+
+    --esconder: none;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 1fr;
+
+    grid-template-areas: "dos"
+                         "cuatro";
+}
+
+.contenedor {
+    display: flex;
+}
+
+#contenedor1 {
+    grid-area: uno;
+    background-color: darkolivegreen;
+
+    display: var(--esconder);
+}
+
+#contenedor2 {
+    grid-area: dos;
+    background-color: darkviolet;
+}
+
+#contenedor3 {
+    grid-area: tres;
+    background-color: rgb(135, 197, 27);
+
+    display: flex;
+
+    display: var(--esconder);
+}
+
+#contenedor4 {
+    grid-area: cuatro;
+    background-color: rgb(180, 113, 209);
+}
