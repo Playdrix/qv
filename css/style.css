@@ -20,36 +20,33 @@ body {
     width: 100%;
     min-height: 100vh;
 
-    grid-template-columns: 250px auto;
-    grid-template-rows: 55px auto;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 55px 1fr;
     grid-template-areas: "logo header"
                          "menu contenido";
+
+    overflow: auto;
+
+    transition: grid-template-columns 0.25s ease-out;
 }
 
 .pagina.active {
-    grid-template-columns: 250px auto;
-    grid-template-rows: 55px auto;
-    grid-template-areas: "header header"
-                         "contenido contenido";
-
-    transition: .5s grid-template-areas;
+    grid-template-columns: 0px 1fr;
 }
 
 /* LOGO */
 
-.pagina .logo {
+.logo {
     grid-area: logo;
     background: var(--colorFondoMenu);
+
+    min-width: 250px;
 
     display: flex;
     align-items: center;
 }
 
-.pagina .logo.active {
-    display: none;
-}
-
-.pagina .logo a {
+.logo a {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -59,54 +56,62 @@ body {
     height: 80%;
 }
 
-.pagina .logo img {
+.logo img {
     width: 22px;
     margin-left: 28px;
-    position: relative;
-    top: 2px;
+
+    padding: 2px 0px 0px 0px;
 }
 
-.pagina .logo .nombre-logo {
+.logo .nombre-logo {
     font-size: 16px;
     margin-left: 15px;
     font-weight: 700;
-    position: relative;
-    top: 3px;
+
+    padding: 3px 0px 0px 0px;
 }
 
 /* HEADER */
 
 .header {
     grid-area: header;
+
     background: var(--colorFondoHeader);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-header {
+    width: 98%;
+    height: 100%;
 
     display: grid;
     align-items: center;
-    justify-content: space-between;
-    padding: 0px 25px;
+    justify-content: center;
 
-    grid-template-columns: auto 2fr 1fr auto;
+    grid-template-columns: 0.5fr 3fr 1fr 0.5fr;
     grid-template-areas: "bar buscador iconos avatar";
 }
 
 /* BAR */
 
-.header .bar {
+.contenedor-header .bar {
     grid-area: bar;
 
 }
 
-.header .bar button {
+.contenedor-header .bar button {
     width: 40px;
     height: 40px;
     border-radius: 100px;
 }
 
-.header .bar button:hover {
+.contenedor-header .bar button:hover {
     background: rgb(57, 57, 63);
 }
 
-.header .bar .boton-bar {
+.contenedor-header .bar .boton-bar {
     background: none;
     border: none;
     cursor: pointer;
@@ -114,13 +119,13 @@ body {
     font-size: 20px;
 }
 
-.header .bar i {
+.contenedor-header .bar i {
     padding: 3px;
 }
 
 /* BUSCADOR */
 
-.header .buscador {
+.contenedor-header .buscador {
     grid-area: buscador;
 
     display: flex;
@@ -128,8 +133,8 @@ body {
     justify-content: center;
 }
 
-.header .buscador input {
-    width: 70%;
+.contenedor-header .buscador input {
+    width: 75%;
     background-color: rgb(236, 236, 236);
     padding: 7px 14px;
     border-radius: 15px;
@@ -138,7 +143,7 @@ body {
     font-size: 16px;
 }
 
-.header .buscador .lupa {
+.contenedor-header .buscador .lupa {
     color: white;
 
     margin-left: 4px;
@@ -154,17 +159,17 @@ body {
     border: none;
 }
 
-.header .buscador i {
+.contenedor-header .buscador i {
     padding: 3px;
 }
 
-.header .buscador .lupa:hover {
+.contenedor-header .buscador .lupa:hover {
     background: rgb(57, 57, 63);
 }
 
 /* ICONOS */
 
-.header .iconos {
+.contenedor-header .iconos {
     grid-area: iconos;
 
     display: flex;
@@ -172,13 +177,14 @@ body {
     justify-content: center;
 }
 
-.header .iconos button {
+.contenedor-header .iconos button {
     background: none;
     border: none;
     color: white;
     cursor: pointer;
 
-    margin-right: 20px;
+    margin: 0px 4px;
+
     font-size: 18px;
 
     width: 40px;
@@ -186,26 +192,87 @@ body {
     border-radius: 100px;
 }
 
-.header .iconos i {
+.contenedor-header .iconos i {
     padding: 3px;
 }
 
-.header .iconos button:hover {
+.contenedor-header .iconos button:hover {
     background: rgb(57, 57, 63);
+}
+
+/* OPCIONES CODE-HOUSE*/
+
+.iconos .opciones-code {
+    position: sticky;
+}
+
+.iconos .opciones-house {
+    position: sticky;
+}
+
+.iconos nav ul {
+    padding: 2px 0px;
+    background-color: rgb(41, 41, 41);
+    border-radius: 10px;
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    z-index: 1000;
+    display: none;
+    overflow: hidden;
+}
+
+.iconos .opciones-code ul {
+    position: absolute;
+    right: 10px;
+    width: 140px;
+}
+
+.iconos .opciones-house ul {
+    position: absolute;
+    right: 10px;
+    width: 140px;
+}
+
+.iconos .opciones-code:hover ul {
+    display: block;
+}
+
+.iconos .opciones-house:hover ul {
+    display: block;
+}
+
+.iconos nav ul li {
+    list-style: none;
+}
+
+.iconos nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 10px;
+    margin: 2px 0px;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.iconos nav ul li a:hover {
+    background-color: rgb(70, 70, 70);
 }
 
 /* AVATAR */
 
-.header .avatar {
+.contenedor-header .avatar {
     grid-area: avatar;
     
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
 }
 
-.header .avatar button{
-    margin-right: 20px;
+.contenedor-header .avatar button{
     font-size: 22px;
 
 
@@ -220,11 +287,11 @@ body {
     border: none;
 }
 
-.header .avatar i {
-    padding: 3px;
+.contenedor-header .avatar i {
+    padding: 10px 3px;
 }
 
-.header .avatar button:hover {
+.contenedor-header .avatar button:hover {
     background: rgb(57, 57, 63);
 }
 
@@ -236,14 +303,11 @@ body {
     background: var(--colorFondoMenu);
 }
 
-.menu-lateral.active {
-    display: none;
-}
-
 .menu-lateral a {
     display: block;
     color: rgba(255, 255, 255, 0.85);
     padding: 15px 35px;
+    min-width: 250px;
     text-decoration: none;
 }
 
@@ -278,7 +342,34 @@ body {
     grid-area: contenido;
     background: var(--colorFondoContenido);
 
-    padding: 25px 30px;
+    padding: 30px 40px;
+}
+
+.contenido .aplicaciones {
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    padding: 30px 0px;
+
+    gap: 30px;
+}
+
+.contenido .aplicaciones div {
+    background-color: rgb(41, 41, 41);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: white;
+    
+    width: 200px;
+    height: 250px;
+
+    box-shadow: rgb(32, 32, 30) 0px 10px 24px;
+
 }
 
 .contenido .titulo {

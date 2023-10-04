@@ -23,22 +23,36 @@
         </div>
 
         <header class="header">
+            <div class="contenedor-header">
+                <div class="bar">
+                    <button id="boton-bar" class="boton-bar" onclick="botonMenu()"><i class="fa-solid fa-bars"></i></button>
+                </div>
 
-            <div class="bar">
-                <button id="boton-bar" class="boton-bar" onclick="botonMenu()"><i class="fa-solid fa-bars"></i></button>
-            </div>
+                <div class="buscador">
+                    <input type="text" placeholder="Buscar"><button class="lupa"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
 
-            <div class="buscador">
-                <input type="text" placeholder="Buscar"><button class="lupa"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
+                <div class="iconos">
+                    <nav class="opciones-house">
+                        <button href="#"><i class="fa-solid fa-house" title="Página de inicio"></i></button>
+                        <ul>
+                            <li><a href="#">Inicio</a></li>
+                            <li><a href="#">Historial</a></li>
+                        </ul>
+                    </nav>
+                    <nav class="opciones-code">
+                        <button href="#"><i class="fa-solid fa-code" title="Código fuente"></i></button>
+                        <ul>
+                            <li><a href="https://github.com/aplicationqv/qv/blob/main/index.html" target="_blank">Código HTML</a></li>
+                            <li><a href="https://github.com/aplicationqv/qv/blob/main/css/style.css" target="_blank">Código CSS</a></li>
+                            <li><a href="#" target="_blank">Código Javascript</a></li>
+                        </ul>
+                    </nav>
+                </div>
 
-            <div class="iconos">
-                <button href="#"><i class="fa-solid fa-house"></i></button>
-                <button href="#"><i class="fa-solid fa-code"></i></button>
-            </div>
-
-            <div class="avatar">
-                <button href="#"><i class="fa-solid fa-circle-user"></i></button>
+                <div class="avatar">
+                    <button href="#"><i class="fa-solid fa-circle-user" title="Usuario"></i></button>
+                </div>
             </div>
         </header>
 
@@ -50,6 +64,14 @@
 
         <main class="contenido">
             <h3 class="titulo">Aplicaciones</h3>
+
+            <div class="aplicaciones">
+
+                <div class="aplicacion1">
+                    Calculadora de calorias
+                </div>
+
+            </div>
         </main>
 
     </div>
