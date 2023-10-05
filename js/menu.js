@@ -6,9 +6,11 @@ const botonMenu = () => {
     contenedorPagina.classList.toggle('active')
 }
 
-if (window.innerWidth <= 768) {
-    contenedorPagina.classList.remove('active')
-}
-if (window.innerWidth <= 576) {
-    contenedorPagina.classList.remove('active')
-}
+window.addEventListener('resize', function() {
+    if (window.innerWidth <= 768) {
+        contenedorPagina.classList.remove('active')
+    }
+    if (window.innerWidth <= 576) {
+        contenedorPagina.classList.remove('active')
+    }
+})

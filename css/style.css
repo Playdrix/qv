@@ -8,6 +8,7 @@
     --colorFondoMenu: rgb(37, 34, 39);
     --colorFondoContenido: rgb(55, 50, 58);
     --colorFondoHeader: rgb(32, 29, 34); /* Color used: rgb(32, 29, 34)*/
+    --colorLetraNormal: rgba(235, 235, 235, 0.952);
 }
 
 .contenido::-webkit-scrollbar {
@@ -161,6 +162,10 @@ body {
     padding: 3px;
 }
 
+.logo-celular {
+    display: none;
+}
+
 /* BUSCADOR */
 
 .contenedor-header .buscador {
@@ -173,7 +178,8 @@ body {
 
 .contenedor-header .buscador input {
     width: 75%;
-    background-color: rgb(236, 236, 236);
+    background-color: rgb(56, 56, 56);
+    color: white;
     padding: 6px 14px;
     border-radius: 15px;
     border: none;
@@ -184,7 +190,7 @@ body {
 .contenedor-header .buscador .lupa {
     color: white;
 
-    margin-left: 4px;
+    margin: 0px 4px;
     width: 40px;
     height: 40px;
 
@@ -360,7 +366,7 @@ body {
 
     display: flex;
     justify-content: center;
-    font-size: 17px;
+    font-size: 15px;
 }
 
 .menu-lateral a .titulo{
@@ -368,12 +374,16 @@ body {
 
     display: flex;
     justify-content: start;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 .menu-lateral a:hover {
     background: rgb(57, 57, 63);
     color: rgb(255, 255, 255);
+}
+
+.menu-horizontal {
+    display: none;
 }
 
 /* CONTENIDO */
@@ -435,6 +445,9 @@ body {
 
 */
 
+
+
+
 @media screen and (max-width: 768px) {
 
     .contenido {
@@ -446,6 +459,10 @@ body {
     .pagina.active {
         grid-template-columns: 200px 1fr;
     }
+
+    .logo-celular {
+        display: none;
+    }
 }
 
 
@@ -455,17 +472,187 @@ body {
 
 @media screen and (max-width: 576px) {
 
+    /* MENU-HORIZONTAL */
+
     .contenido {
         background: blue;
     }
 
     .pagina {
         grid-template-columns: 0px 1fr;
-    }
+        grid-template-rows: 50px 1fr 50px;
+        grid-template-areas: "logo header"
+                             "menu contenido"
+                             "menu menu-horizontal";
+    }  
 
     .pagina.active {
         grid-template-columns: 50px 1fr;
     }
 
+    .menu-horizontal {
+        grid-area: menu-horizontal;
+        display: grid;
 
+        grid-template-columns: 0.5fr 1fr 0.2fr 1fr 0.2fr 1fr 0.5fr;
+        grid-template-areas: "lado1 app lado2 web lado3 comentarios lado4";
+        background-color: var(--colorFondoHeader);
+    }
+
+    #app {
+        grid-area: app;
+    }
+
+    #web {
+        grid-area: web;
+    }
+
+    #comentarios {
+        grid-area: comentarios;
+    }
+
+    .menu-horizontal a {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        color: var(--colorLetraNormal);
+    
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "icono"
+                             "titulo";
+    
+        text-decoration: none;
+    }
+
+    .menu-horizontal a .icono {
+        grid-area: icono;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+
+        padding-top: 5px;
+    }
+
+    .menu-horizontal a .titulo {
+        grid-area: titulo;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        font-weight: 500;
+        padding-bottom: 5px;
+    }
+
+
+
+
+
+
+    /* CONTENEDOR HEADER*/
+
+
+
+    .contenedor-header .bar button {
+        display: none;
+    }
+
+    .contenedor-header {
+        width: 98%;
+        height: 100%;
+    
+        display: grid;
+        align-items: center;
+        justify-content: center;
+    
+        grid-template-columns: 0.5fr 3fr 1fr 0.5fr;
+        grid-template-areas: "logo-celular buscador iconos avatar";
+    }
+
+    .contenedor-header .bar {
+        grid-area: logo-celular;
+    }
+
+    .contenedor-header .buscador input {
+        display: none;
+    }
+
+    .contenedor-header .buscador {
+        grid-area: buscador;
+
+        justify-content: end;
+    }
+
+
+    /* LOGO */
+
+    .logo-celular{
+        grid-area: logo-celular;
+
+        display: block;
+    }
+
+    .logo-celular a {
+        display: grid;
+        align-items: center;
+        text-decoration: none;
+    
+        max-height: 46px;
+    
+        grid-template-columns: 50px 1fr 1fr;
+        grid-template-areas: "figura nombre-logo1 nombre-logo2";
+        color: white;
+    }
+
+    .logo-celular a .logo-img {
+        grid-area: figura;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .logo-celular a .logo-img img {
+        width: 22px;
+    }
+
+    .logo-celular a .nombre-logo1 {
+        grid-area: nombre-logo1;
+    
+        display: flex;
+        align-items: center;
+        justify-content: start;
+    
+        font-size: 16px;
+    
+        font-weight: 700;
+    }
+
+    .logo-celular a .nombre-logo2 {
+        grid-area: nombre-logo2;
+    
+        display: flex;
+        align-items: center;
+        justify-content: start;
+    
+        margin-left: 4px;
+    
+        font-size: 16px;
+    
+        font-weight: 700;
+    }
+
+    .menu-lateral a {
+        display: grid;
+        align-items: center;
+        justify-content: start;
+        color: rgba(255, 255, 255, 0.85);
+
+        grid-template-columns: 50px 1fr;
+        grid-template-areas: "icono titulo";
+
+        padding: 13px 0px;
+        text-decoration: none;
+    }
 }
