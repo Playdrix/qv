@@ -3,6 +3,8 @@
 
 const botonMenu = () => {
 
-    const contenedorPagina = document.querySelector('#pagina')
+    const contenedorPagina = document.getElementById('pagina')
+
     contenedorPagina.classList.toggle('active')
 }
+

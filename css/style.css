@@ -10,24 +10,36 @@
     --colorFondoHeader: rgb(32, 29, 34); /* Color used: rgb(32, 29, 34)*/
 }
 
+.contenido::-webkit-scrollbar {
+    width: 7px;
+}
+
+.contenido::-webkit-scrollbar-thumb {
+    background-color: rgba(206, 206, 206, 0.8);
+    border-radius: 6px;
+    border-right: 1px solid rgb(55, 50, 58);
+}
+
 body {
     font-family: 'Roboto', sans-serif;
+
     /*font-family: 'Open Sans', sans-serif;*/
 }
 
 .pagina {
     display: grid;
     width: 100%;
+    height: 100vh;
     min-height: 100vh;
 
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: 55px 1fr;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 50px 1fr;
     grid-template-areas: "logo header"
                          "menu contenido";
 
-    overflow: auto;
+    overflow: hidden;
 
-    transition: grid-template-columns 0.25s ease-out;
+    transition: grid-template .15s ease-out;
 }
 
 .pagina.active {
@@ -40,35 +52,61 @@ body {
     grid-area: logo;
     background: var(--colorFondoMenu);
 
-    min-width: 250px;
-
     display: flex;
     align-items: center;
+    justify-content: start;
+
+    overflow: hidden;
 }
 
 .logo a {
-    display: flex;
+    display: grid;
     align-items: center;
     text-decoration: none;
+
+    max-height: 46px;
+
+    grid-template-columns: 50px 1fr 1fr;
+    grid-template-areas: "figura nombre-logo1 nombre-logo2";
     color: white;
-
-    width: 80%;
-    height: 80%;
 }
 
-.logo img {
+.logo a .logo-img {
+    grid-area: figura;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo a .logo-img img {
     width: 22px;
-    margin-left: 28px;
-
-    padding: 2px 0px 0px 0px;
 }
 
-.logo .nombre-logo {
-    font-size: 16px;
-    margin-left: 15px;
-    font-weight: 700;
+.logo a .nombre-logo1 {
+    grid-area: nombre-logo1;
 
-    padding: 3px 0px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+.logo a .nombre-logo2 {
+    grid-area: nombre-logo2;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    margin-left: 4px;
+
+    font-size: 16px;
+
+    font-weight: 700;
 }
 
 /* HEADER */
@@ -136,7 +174,7 @@ body {
 .contenedor-header .buscador input {
     width: 75%;
     background-color: rgb(236, 236, 236);
-    padding: 7px 14px;
+    padding: 6px 14px;
     border-radius: 15px;
     border: none;
     font-family: 'Roboto', sans-serif;
@@ -215,7 +253,6 @@ body {
     background-color: rgb(41, 41, 41);
     border-radius: 10px;
     font-size: 13px;
-    font-family: 'Open Sans', sans-serif;
     font-weight: 500;
     z-index: 1000;
     display: none;
@@ -225,13 +262,13 @@ body {
 .iconos .opciones-code ul {
     position: absolute;
     right: 10px;
-    width: 140px;
+    width: 150px;
 }
 
 .iconos .opciones-house ul {
     position: absolute;
     right: 10px;
-    width: 140px;
+    width: 150px;
 }
 
 .iconos .opciones-code:hover ul {
@@ -249,7 +286,7 @@ body {
 .iconos nav ul li a {
     text-decoration: none;
     color: white;
-    padding: 10px 10px;
+    padding: 10px 15px;
     margin: 2px 0px;
 
 
@@ -301,39 +338,42 @@ body {
 .menu-lateral {
     grid-area: menu;
     background: var(--colorFondoMenu);
+
+    overflow: hidden;
 }
 
 .menu-lateral a {
-    display: block;
+    display: grid;
+    align-items: center;
+    justify-content: start;
     color: rgba(255, 255, 255, 0.85);
-    padding: 15px 35px;
-    min-width: 250px;
+
+    grid-template-columns: 50px 1fr;
+    grid-template-areas: "icono titulo";
+
+    padding: 13px 0px;
     text-decoration: none;
+}
+
+.menu-lateral a .icono {
+    grid-area: icono;
+
+    display: flex;
+    justify-content: center;
+    font-size: 17px;
+}
+
+.menu-lateral a .titulo{
+    grid-area: titulo;
+
+    display: flex;
+    justify-content: start;
+    font-size: 17px;
 }
 
 .menu-lateral a:hover {
     background: rgb(57, 57, 63);
     color: rgb(255, 255, 255);
-    font-weight: 500;
-}
-
-.menu-lateral .opcion {
-    font-size: 17px;
-}
-
-.menu-lateral .fa-solid {
-    margin-right: 28px;
-    font-size: 14x;
-}
-
-.menu-lateral a.active {
-    background: rgb(57, 57, 63);
-    font-weight: 500;
-}
-
-.menu-lateral a.active .fa-solid {
-    background: rgb(57, 57, 63);
-    color: hsl(202, 77%, 57%);
 }
 
 /* CONTENIDO */
@@ -342,7 +382,9 @@ body {
     grid-area: contenido;
     background: var(--colorFondoContenido);
 
-    padding: 30px 40px;
+    overflow: auto;
+
+    padding: 20px 30px;
 }
 
 .contenido .aplicaciones {
@@ -376,4 +418,54 @@ body {
     font-size: 19px;
     font-family: 'Open Sans', sans-serif;
     color: white;
+}
+
+
+
+
+
+/* MEDIA QUERIS*/
+
+/* 
+    EXTRA: 1200Ppx - Ordenadores largos
+    GRANDE: 992px - Ordenadores normales
+    MEDIANO: 768px - Tablets
+    PEQUEÑO: 576px - Ladnscape Phones
+
+
+*/
+
+@media screen and (max-width: 768px) {
+
+    .contenido {
+        background: red;  
+    }
+    .pagina {
+        grid-template-columns: 50px 1fr;
+    }
+    .pagina.active {
+        grid-template-columns: 200px 1fr;
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width: 576px) {
+
+    .contenido {
+        background: blue;
+    }
+
+    .pagina {
+        grid-template-columns: 0px 1fr;
+    }
+
+    .pagina.active {
+        grid-template-columns: 50px 1fr;
+    }
+
+
 }
