@@ -11,7 +11,7 @@
 }
 
 .contenido::-webkit-scrollbar {
-    width: 7px;
+    width: 6px;
 }
 
 .contenido::-webkit-scrollbar-thumb {
@@ -39,11 +39,11 @@ body {
 
     overflow: hidden;
 
-    transition: grid-template .15s ease-out;
+    transition: grid-template .1s ease-out;
 }
 
 .pagina.active {
-    grid-template-columns: 0px 1fr;
+    grid-template-columns: 50px 1fr;
 }
 
 /* LOGO */
