@@ -74,11 +74,15 @@
                 <div class="avatar">
                     <button href="#"><i class="fa-solid fa-circle-user" title="Usuario"></i></button>
                 </div>
+
+                <div class="bar-derecha">
+                    <button id="boton-bar" class="boton-bar" onclick="botonMenuDerecha()"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                </div>
             </div>
         </header>
 
         <nav class="menu-lateral" id="menu-lateral">
-            <a href="#" class="active">
+            <a href="#" class="active" id="aplicaciones-boton">
                 <div class="icono">
                     <i class="fa-solid fa-house-laptop"></i>
                 </div>
@@ -86,7 +90,7 @@
                     <span>Aplicaciones</span>
                 </div>
             </a>
-            <a href="#">
+            <a href="#" id="web-boton">
                 <div class="icono">
                     <i class="fa-solid fa-globe"></i>
                 </div>
@@ -94,7 +98,7 @@
                     <span>Web</span>
                 </div>
             </a>
-            <a href="#">
+            <a href="#" id="comentarios-boton">
                 <div class="icono">
                     <i class="fa-solid fa-comment-dots"></i>
                 </div>
@@ -105,44 +109,65 @@
         </nav>
 
         <main class="contenido">
-            <h3 class="titulo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, consequatur animi sequi quasi vitae, eligendi ullam blanditiis eum amet dolorum mollitia maiores corrupti tenetur deserunt optio dolore quam? Repudiandae ad tempore sint nobis expedita. Accusantium soluta, consequatur veniam fuga aliquam enim minus, dolore ducimus aspernatur, inventore recusandae temporibus velit architecto modi a saepe ut! Ea deleniti blanditiis a corporis numquam quis quam incidunt, impedit fuga voluptate magnam dicta fugit quisquam reprehenderit laudantium ullam rerum. Incidunt obcaecati aut ipsa laboriosam repellendus tenetur corporis quis commodi alias quam, quaerat, earum aspernatur tempore optio cumque eius asperiores facilis sequi ipsam sunt laudantium? Deleniti nobis alias, tempora vitae laboriosam eum quos, expedita iure molestiae laudantium tenetur eius in possimus ex veniam voluptatem. Sed nesciunt quam aperiam et, eveniet autem perspiciatis sapiente, corrupti explicabo quibusdam provident dicta at vitae in repellat iste voluptatum eligendi placeat id voluptate dolorem odio magni? Ducimus at non delectus quia fugit accusamus tempore dignissimos culpa consequatur harum ex unde ut, ipsa, reprehenderit odit laudantium deserunt in provident quibusdam itaque. Nulla, molestiae quos nostrum harum ullam tempora eligendi in, tenetur deserunt illo quam reprehenderit. Similique sint impedit mollitia eaque vero officia. Cum perferendis veritatis, iusto quas distinctio ad. Laborum consequatur eligendi id aliquid minima expedita vitae tempore iure asperiores? Consequatur molestiae culpa omnis voluptatum tenetur a, eligendi veritatis libero facere laudantium earum unde officiis voluptas sint autem magnam fugit quos dignissimos atque architecto possimus in explicabo! Cumque molestiae fuga distinctio, eaque eum facere aperiam qui modi quas nostrum cupiditate cum id asperiores ipsam autem consectetur rem esse praesentium. Vero, expedita earum. Doloribus corrupti consequatur, facilis modi architecto illum? Quo ducimus, blanditiis perferendis enim iusto dolorem deleniti quibusdam eius quis odio doloribus doloremque, culpa, totam provident commodi. Asperiores consectetur cum fugit aspernatur nulla maiores repellat enim inventore voluptatum modi ipsum ad magni officiis ullam, minus quaerat explicabo sequi, dicta eligendi possimus veniam accusamus! Ullam magni cupiditate unde pariatur rerum nesciunt dignissimos autem aliquid rem. Quae, tempora dolore quas quam ullam inventore dignissimos dicta fugiat hic itaque officiis beatae similique magni. Sapiente quam distinctio, error corporis atque quos qui ipsa voluptate perspiciatis eos alias earum veritatis debitis laboriosam, dicta natus nesciunt temporibus ut nobis eligendi similique optio omnis sequi. Eveniet consequatur autem ratione dicta illum quibusdam, eos officia dolore minima quas labore iure consectetur quidem eaque libero maxime impedit asperiores, voluptatem maiores sunt cumque sed quaerat est a. Minima natus earum incidunt a.</h3>
-            <h3 class="titulo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, consequatur animi sequi quasi vitae, eligendi ullam blanditiis eum amet dolorum mollitia maiores corrupti tenetur deserunt optio dolore quam? Repudiandae ad tempore sint nobis expedita. Accusantium soluta, consequatur veniam fuga aliquam enim minus, dolore ducimus aspernatur, inventore recusandae temporibus velit architecto modi a saepe ut! Ea deleniti blanditiis a corporis numquam quis quam incidunt, impedit fuga voluptate magnam dicta fugit quisquam reprehenderit laudantium ullam rerum. Incidunt obcaecati aut ipsa laboriosam repellendus tenetur corporis quis commodi alias quam, quaerat, earum aspernatur tempore optio cumque eius asperiores facilis sequi ipsam sunt laudantium? Deleniti nobis alias, tempora vitae laboriosam eum quos, expedita iure molestiae laudantium tenetur eius in possimus ex veniam voluptatem. Sed nesciunt quam aperiam et, eveniet autem perspiciatis sapiente, corrupti explicabo quibusdam provident dicta at vitae in repellat iste voluptatum eligendi placeat id voluptate dolorem odio magni? Ducimus at non delectus quia fugit accusamus tempore dignissimos culpa consequatur harum ex unde ut, ipsa, reprehenderit odit laudantium deserunt in provident quibusdam itaque. Nulla, molestiae quos nostrum harum ullam tempora eligendi in, tenetur deserunt illo quam reprehenderit. Similique sint impedit mollitia eaque vero officia. Cum perferendis veritatis, iusto quas distinctio ad. Laborum consequatur eligendi id aliquid minima expedita vitae tempore iure asperiores? Consequatur molestiae culpa omnis voluptatum tenetur a, eligendi veritatis libero facere laudantium earum unde officiis voluptas sint autem magnam fugit quos dignissimos atque architecto possimus in explicabo! Cumque molestiae fuga distinctio, eaque eum facere aperiam qui modi quas nostrum cupiditate cum id asperiores ipsam autem consectetur rem esse praesentium. Vero, expedita earum. Doloribus corrupti consequatur, facilis modi architecto illum? Quo ducimus, blanditiis perferendis enim iusto dolorem deleniti quibusdam eius quis odio doloribus doloremque, culpa, totam provident commodi. Asperiores consectetur cum fugit aspernatur nulla maiores repellat enim inventore voluptatum modi ipsum ad magni officiis ullam, minus quaerat explicabo sequi, dicta eligendi possimus veniam accusamus! Ullam magni cupiditate unde pariatur rerum nesciunt dignissimos autem aliquid rem. Quae, tempora dolore quas quam ullam inventore dignissimos dicta fugiat hic itaque officiis beatae similique magni. Sapiente quam distinctio, error corporis atque quos qui ipsa voluptate perspiciatis eos alias earum veritatis debitis laboriosam, dicta natus nesciunt temporibus ut nobis eligendi similique optio omnis sequi. Eveniet consequatur autem ratione dicta illum quibusdam, eos officia dolore minima quas labore iure consectetur quidem eaque libero maxime impedit asperiores, voluptatem maiores sunt cumque sed quaerat est a. Minima natus earum incidunt a.</h3>
+            <section class="pagina-aplicaciones" id="pagina-aplicaciones">
+                <h3 class="titulo">Aplicaciones</h3>
 
-            <div class="aplicaciones">
+                <div class="contenedor-aplicaciones">
 
-                <div class="aplicacion1">
+                    <div class="calorias">
                     Calculadora de calorias
-                </div>
+                    </div>
 
-            </div>
+                    <div class="calorias">
+                        Calculadora de calorias
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="pagina-web" id="pagina-web">
+                <h3 class="titulo">Páginas web</h3>
+
+                <div class="contenedor-web">
+
+                    <div class="chompas">
+                        Tienda de chompas
+                    </div>
+
+                    <div class="chompas">
+                        Calculadora de calorias
+                    </div>
+
+                    <div class="chompas">
+                        Calculadora de calorias
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="pagina-comentarios" id="pagina-comentarios">
+                <h3 class="titulo">Comentarios</h3>
+
+                <div class="contenedor-comentarios">
+
+                    <div class="foro1">
+                        Foro 1
+                    </div>
+
+                    <div class="foro1">
+                        Foro 1
+                    </div>
+
+                    <div class="foro1">
+                        Foro 1
+                    </div>
+                    <div class="foro1">
+                        Foro 1
+                    </div>
+
+                </div>
+            </section>
         </main>
-
-        <nav class="menu-horizontal" id="menu-horizontal">
-            <a href="#" class="active" id="app">
-                <div class="icono">
-                    <i class="fa-solid fa-house-laptop"></i>
-                </div>
-                <div class="titulo">
-                    <span>Aplicaciones</span>
-                </div>
-            </a>
-            <a href="#" id="web">
-                <div class="icono">
-                    <i class="fa-solid fa-globe"></i>
-                </div>
-                <div class="titulo">
-                    <span>Web</span>
-                </div>
-            </a>
-            <a href="#"id="comentarios">
-                <div class="icono">
-                    <i class="fa-solid fa-comment-dots"></i>
-                </div>
-                <div class="titulo">
-                    <span>Comentarios</span>
-                </div>
-            </a>
-        </nav>
 
     </div>
     

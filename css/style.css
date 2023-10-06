@@ -30,8 +30,8 @@ body {
 .pagina {
     display: grid;
     width: 100%;
-    height: cal(100vh - 50px);
-    min-height: 100%;
+    height: 100vh;
+    min-height: 100vh;
 
     grid-template-columns: 200px 1fr;
     grid-template-rows: 50px 1fr;
@@ -64,8 +64,6 @@ body {
     display: grid;
     align-items: center;
     text-decoration: none;
-
-    max-height: 46px;
 
     grid-template-columns: 50px 1fr 1fr;
     grid-template-areas: "figura nombre-logo1 nombre-logo2";
@@ -122,15 +120,15 @@ body {
 }
 
 .contenedor-header {
-    width: 98%;
+    width: 100%;
     height: 100%;
 
     display: grid;
     align-items: center;
     justify-content: center;
 
-    grid-template-columns: 0.5fr 3fr 1fr 0.5fr;
-    grid-template-areas: "bar buscador iconos avatar";
+    grid-template-columns: 0.1fr 0.5fr 3fr 1fr 0.5fr 0.1fr;
+    grid-template-areas: "lado1 bar buscador iconos avatar lado2";
 }
 
 /* BAR */
@@ -138,6 +136,12 @@ body {
 .contenedor-header .bar {
     grid-area: bar;
 
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-header .bar-derecha {
+    display: none;
 }
 
 .contenedor-header .bar button {
@@ -331,7 +335,7 @@ body {
 }
 
 .contenedor-header .avatar i {
-    padding: 10px 3px;
+    padding: 8px 3px;
 }
 
 .contenedor-header .avatar button:hover {
@@ -382,9 +386,10 @@ body {
     color: rgb(255, 255, 255);
 }
 
-.menu-horizontal {
-    display: none;
-}
+
+/* MENU HORIZONTAL DERECHO*/
+
+
 
 /* CONTENIDO */
 
@@ -397,7 +402,21 @@ body {
     padding: 20px 30px;
 }
 
-.contenido .aplicaciones {
+.contenido .pagina-aplicaciones,
+.contenido .pagina-web,
+.contenido .pagina-comentarios {
+    display: none;
+}
+
+.contenido .pagina-aplicaciones.active,
+.contenido .pagina-web.active,
+.contenido .pagina-comentarios.active  {
+    display: block;
+}
+
+.contenido .contenedor-aplicaciones,
+.contenido .contenedor-web,
+.contenido .contenedor-comentarios {
 
     display: flex;
     align-items: center;
@@ -408,7 +427,9 @@ body {
     gap: 30px;
 }
 
-.contenido .aplicaciones div {
+.contenido .contenedor-aplicaciones div,
+.contenido .contenedor-web div,
+.contenido .contenedor-comentarios div {
     background-color: rgb(41, 41, 41);
     border-radius: 10px;
     display: flex;
@@ -429,6 +450,16 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: white;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -472,6 +503,7 @@ body {
 
 @media screen and (max-width: 576px) {
 
+
     /* MENU-HORIZONTAL */
 
     .contenido {
@@ -480,77 +512,14 @@ body {
 
     .pagina {
         grid-template-columns: 0px 1fr;
-        grid-template-rows: 50px 1fr 50px;
+        grid-template-rows: 50px 1fr;
         grid-template-areas: "logo header"
                              "menu contenido"
-                             "menu menu-horizontal";
     }  
 
     .pagina.active {
         grid-template-columns: 50px 1fr;
     }
-
-    .menu-horizontal {
-        grid-area: menu-horizontal;
-        display: grid;
-
-        grid-template-columns: 0.5fr 1fr 0.2fr 1fr 0.2fr 1fr 0.5fr;
-        grid-template-areas: "lado1 app lado2 web lado3 comentarios lado4";
-        background-color: var(--colorFondoHeader);
-        
-        position: fixed;
-        height: 50px;
-        width: 100%;
-
-        top: calc(100vh - 100px);
-    }
-
-    #app {
-        grid-area: app;
-    }
-
-    #web {
-        grid-area: web;
-    }
-
-    #comentarios {
-        grid-area: comentarios;
-    }
-
-    .menu-horizontal a {
-        display: grid;
-        align-items: center;
-        justify-content: center;
-        color: var(--colorLetraNormal);
-    
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-        grid-template-areas: "icono"
-                             "titulo";
-    
-        text-decoration: none;
-    }
-
-    .menu-horizontal a .icono {
-        grid-area: icono;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-
-        padding-top: 5px;
-    }
-
-    .menu-horizontal a .titulo {
-        grid-area: titulo;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 10px;
-        font-weight: 500;
-        padding-bottom: 5px;
-    }
-
 
 
 
@@ -558,29 +527,69 @@ body {
 
     /* CONTENEDOR HEADER*/
 
-
-
-    .contenedor-header .bar button {
-        display: none;
-    }
-
     .contenedor-header {
-        width: 98%;
+        width: 100%;
         height: 100%;
     
         display: grid;
         align-items: center;
         justify-content: center;
     
-        grid-template-columns: 0.5fr 3fr 1fr 0.5fr;
-        grid-template-areas: "logo-celular buscador iconos avatar";
+        grid-template-columns: 0.1fr 0.5fr 4fr 0.5fr 0.5fr 0.1fr;
+        grid-template-areas: "lado1 bar logo-celular buscador bar-derecha lado2";
     }
 
     .contenedor-header .bar {
+        grid-area: bar;
+    }
+
+    .contenedor-header .bar-derecha {
+        grid-area: bar-derecha;
+        display: block;
+    }
+
+    .contenedor-header .bar-derecha button {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+    
+        margin: 0px 4px;
+    
+        font-size: 18px;
+    
+        width: 40px;
+        height: 40px;
+        border-radius: 100px;
+    }
+
+    .contenedor-header .iconos {
+        display: none;
+    }
+    
+    .contenedor-header .bar-derecha i {
+        padding: 3px;
+    }
+    
+    .contenedor-header .bar-derecha button:hover {
+        background: rgb(57, 57, 63);
+    }
+
+
+    
+
+    .contenedor-header .logo-celular {
         grid-area: logo-celular;
+
+        display: flex;
+        justify-content: start;
     }
 
     .contenedor-header .buscador input {
+        display: none;
+    }
+
+    .contenedor-header .avatar {
         display: none;
     }
 
@@ -591,7 +600,15 @@ body {
     }
 
 
+
+
+
+
     /* LOGO */
+
+    .logo .logo-img img {
+        display: none;
+    }
 
     .logo-celular{
         grid-area: logo-celular;
@@ -606,7 +623,7 @@ body {
     
         max-height: 46px;
     
-        grid-template-columns: 50px 1fr 1fr;
+        grid-template-columns: 30px 1fr 1fr;
         grid-template-areas: "figura nombre-logo1 nombre-logo2";
         color: white;
     }
