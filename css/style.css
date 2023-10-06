@@ -497,6 +497,12 @@ body {
         grid-template-columns: 0.5fr 1fr 0.2fr 1fr 0.2fr 1fr 0.5fr;
         grid-template-areas: "lado1 app lado2 web lado3 comentarios lado4";
         background-color: var(--colorFondoHeader);
+        
+        position: absolute;
+        height: 50px;
+        width: 100%;
+
+        top: calc(100vh - 50px);
     }
 
     #app {
