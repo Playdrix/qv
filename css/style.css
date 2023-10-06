@@ -30,8 +30,8 @@ body {
 .pagina {
     display: grid;
     width: 100%;
-    height: 100vh;
-    min-height: 100vh;
+    height: cal(100vh - 50px);
+    min-height: 100%;
 
     grid-template-columns: 200px 1fr;
     grid-template-rows: 50px 1fr;
@@ -498,7 +498,7 @@ body {
         grid-template-areas: "lado1 app lado2 web lado3 comentarios lado4";
         background-color: var(--colorFondoHeader);
         
-        position: absolute;
+        position: fixed;
         height: 50px;
         width: 100%;
 
