@@ -502,7 +502,7 @@ body {
         height: 50px;
         width: 100%;
 
-        top: calc(100vh - 50px);
+        top: calc(100vh - 100px);
     }
 
     #app {
